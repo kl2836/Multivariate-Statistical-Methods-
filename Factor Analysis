@@ -1,0 +1,76 @@
+> factanal(posttests,1, rotation="none")
+
+Call:
+factanal(x = posttests, factors = 1, rotation = "none")
+
+Uniquenesses:
+postbody  postlet postform postnumb  postrel postclas 
+   0.505    0.425    0.274    0.264    0.572    0.272 
+
+Loadings:
+         Factor1
+postbody 0.703  
+postlet  0.758  
+postform 0.852  
+postnumb 0.858  
+postrel  0.654  
+postclas 0.853  
+
+               Factor1
+SS loadings      3.687
+Proportion Var   0.615
+
+Test of the hypothesis that 1 factor is sufficient.
+The chi square statistic is 32.01 on 9 degrees of freedom.
+The p-value is 0.000198 
+> factanal(posttests,2, rotation="none")
+
+Call:
+factanal(x = posttests, factors = 2, rotation = "none")
+
+Uniquenesses:
+postbody  postlet postform postnumb  postrel postclas 
+   0.517    0.378    0.005    0.041    0.606    0.281 
+
+Loadings:
+         Factor1 Factor2
+postbody  0.664   0.204 
+postlet   0.614   0.495 
+postform  0.995         
+postnumb  0.715   0.670 
+postrel   0.594   0.203 
+postclas  0.823   0.204 
+
+               Factor1 Factor2
+SS loadings      3.349   0.823
+Proportion Var   0.558   0.137
+Cumulative Var   0.558   0.695
+
+Test of the hypothesis that 2 factors are sufficient.
+The chi square statistic is 4.08 on 4 degrees of freedom.
+The p-value is 0.395 
+
+> print(factanal(posttests,2, rotation="varimax")$loadings, cutoff=0.4)
+
+Loadings:
+         Factor1 Factor2
+postbody 0.526   0.455  
+postlet          0.700  
+postform 0.938          
+postnumb         0.901  
+postrel  0.462   0.425  
+postclas 0.671   0.518  
+
+               Factor1 Factor2
+SS loadings      2.099   2.072
+Proportion Var   0.350   0.345
+Cumulative Var   0.350   0.695
+> print(factanal(posttests,2, rotation="quartimax")$loadings, cutoff=0.4)
+Error in do.call(rotation, c(list(load), cn$rotate)) : 
+  could not find function "quartimax"
+> print(factanal(posttests,2, rotation="infomaxT")$loadings, cutoff=0.4)
+Error in do.call(rotation, c(list(load), cn$rotate)) : 
+  could not find function "infomaxT"
+> print(factanal(posttests,2, rotation="oblimin")$loadings, cutoff=0.4)
+Error in do.call(rotation, c(list(load), cn$rotate)) : 
+  could not find function "oblimin"
